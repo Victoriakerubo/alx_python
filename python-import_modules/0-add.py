@@ -1,6 +1,4 @@
-import add_0
+from operator import add
 
-a = 1
-b = 2
 
-print(f"{a} + {b} = {add_0.add(a, b)}")
+add
