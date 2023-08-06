@@ -1,15 +1,11 @@
 import sys
 
-# Get the number of arguments (excluding the script name)
-num_arguments = len(sys.argv) - 1
+def print_arguments(arguments):
+  """Prints the arguments passed to the script."""
+  print("{} arguments:".format(len(arguments)))
+  for index, argument in enumerate(arguments):
+    print("{}: {}".format(index + 1, argument))
 
-# Print the number of arguments
-print("{} argument{}".format(num_arguments, "s" if num_arguments != 1 else ""), end="")
-
-# Print ":", "." or newline based on the number of arguments
-if num_arguments == 0:
-    print(".")
-else:
-    print(":")
-    for i in range(1, num_arguments + 1):
-        print("{}: {}".format(i, sys.argv[i]))
+if __name__ == "__main__":
+  arguments = sys.argv
+  print_arguments(arguments)
