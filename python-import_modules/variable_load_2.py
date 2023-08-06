@@ -1,3 +1,4 @@
 a = 98
-"""Simple variable
-"""
+if __name__ == "__main__":
+  value =("a")
+  print(value)
