@@ -1,34 +1,20 @@
 def safe_print_division(a, b):
-    try:
-        result = a / b
-    except ZeroDivisionError:
-        result = None
-    finally:
-        print("Inside result: {}".format(result))
-        return result
+  """
+  Divides 2 integers and prints the result.
 
-if __name__ == "__main__":
-    a = 10
-    b = 2
-    result = safe_print_division(a, b)
-    print("{:d} / {:d} = {}".format(a, b, result))
+  Args:
+    a: The first integer to divide.
+    b: The second integer to divide.
 
-    a = 10
-    b = -2
-    result = safe_print_division(a, b)
-    print("{:d} / {:d} = {}".format(a, b, result))
+  Returns:
+    The value of the division, otherwise: None.
+  """
 
-    a = 0
-    b = 2
-    result = safe_print_division(a, b)
-    print("{:d} / {:d} = {}".format(a, b, result))
+  try:
+    result = a / b
+  except ZeroDivisionError:
+    result = None
+  finally:
+    print("Inside result: {}".format(result))
 
-    a = 10
-    b = 0
-    result = safe_print_division(a, b)
-    print("{:d} / {:d} = {}".format(a, b, result))
-
-    a = 0
-    b = 0
-    result = safe_print_division(a, b)
-    print("{:d} / {:d} = {}".format(a, b, result))
+  return result
