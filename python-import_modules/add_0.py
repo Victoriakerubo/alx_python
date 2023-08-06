@@ -1,4 +1,4 @@
-def add(a, b):
+def sum(a, b):
     """My addition function
 
     Args:
@@ -9,3 +9,4 @@ def add(a, b):
         The return value. a + b
     """
     return a + b
+print(sum(1,2))
