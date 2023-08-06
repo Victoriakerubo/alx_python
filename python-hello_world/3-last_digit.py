@@ -1,5 +1,3 @@
-import random
-
 def last_digit(number):
   """
   Prints the last digit of a number.
@@ -11,7 +9,7 @@ def last_digit(number):
     The last digit of the number.
   """
 
-  last_digit = number % 10
+  last_digit = abs(number) % 10
 
   if last_digit > 5:
     print(f"Last digit of {number} is {last_digit} and is greater than 5")
