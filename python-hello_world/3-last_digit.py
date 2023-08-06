@@ -1,27 +1,17 @@
+#!/usr/bin/python3
 import random
 
-def last_digit(number):
-  """
-  Prints the last digit of a number.
+number = random.randint(-10000, 10000)
 
-  Args:
-    number: The number whose last digit to print.
+# Get the last digit of the number (using modulo 10)
+last_digit = abs(number) % 10
 
-  Returns:
-    The last digit of the number.
-  """
+# Print the desired output based on the conditions
+print("Last digit of", number, "is", last_digit, end=" ")
 
-  last_digit = abs(number) % 10
-
-  print("Last digit of", number, "is", str(last_digit), end=" ")
-
-  if last_digit > 5:
+if last_digit > 5:
     print("and is greater than 5")
-  elif last_digit == 0:
+elif last_digit == 0:
     print("and is 0")
-  else:
+else:
     print("and is less than 6 and not 0")
-
-if __name__ == "__main__":
-  number = random.randint(-10000, 10000)
-  last_digit(number)
