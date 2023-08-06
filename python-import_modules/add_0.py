@@ -9,4 +9,3 @@ def sum(a, b):
         The return value. a + b
     """
     return a + b
-print(sum(1,2))
