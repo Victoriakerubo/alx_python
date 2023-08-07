@@ -1,14 +1,29 @@
-def __init__(self, size):
-    self.__size = int(size)
+class Square:
+    """
+    This class defines a square by its size.
+    """
 
-    @property
-    def size(self):
-        return self.__size
+    def __init__(self, size):
+        """
+        Initializes a new Square instance.
 
-    def area(self):
-        return self.__size * self.__size
+        Args:
+            size (int): The size of the square.
+        """
+        self.__size = size
 
-
+# Test the Square class
 if __name__ == "__main__":
-    square = Square(3)
-    print(square.size)
+    my_square = Square(3)
+    print(type(my_square))
+    print(my_square.__dict__)
+
+    try:
+        print(my_square.size)
+    except AttributeError as e:
+        print(e)
+
+    try:
+        print(my_square.__size)
+    except AttributeError as e:
+        print(e)
