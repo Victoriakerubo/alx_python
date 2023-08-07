@@ -1,9 +1,10 @@
-inherits_from = __import__('2-inherits_from').inherits_from
+is_kind_of_class = __import__('1-is_kind_of_class').is_kind_of_class
 
 a = 1
-if inherits_from(a, int):
+if is_kind_of_class(a, int):
     print("{} comes from {}".format(a, int.__name__))
-if inherits_from(a, float):
+if is_kind_of_class(a, float):
     print("{} comes from {}".format(a, float.__name__))
-if inherits_from(a, object):
+if is_kind_of_class(a, object):
     print("{} comes from {}".format(a, object.__name__))
+
