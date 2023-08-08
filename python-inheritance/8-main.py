@@ -1,3 +1,5 @@
+# File: 8-main.py
+
 Square = __import__('8-square').Square
 
 s = Square(13)

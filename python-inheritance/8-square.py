@@ -40,6 +40,52 @@ class Rectangle(BaseGeometry):
 
     def __init__(self, width, height):
         """
-        Initializes a Rectangle instance with width
+        Initializes a Rectangle instance with width and height.
+
+        :param width: The width of the rectangle.
+        :param height: The height of the rectangle.
         """
-        
+        self.__width = width
+        self.__height = height
+        self.integer_validator("width", self.__width)
+        self.integer_validator("height", self.__height)
+
+    def area(self):
+        """
+        Calculates and returns the area of the Rectangle.
+
+        :return: The area of the rectangle (width * height).
+        """
+        return self.__width * self.__height
+
+    def __str__(self):
+        """
+        Returns a string representation of the Rectangle.
+
+        :return: A string representing the rectangle's dimensions.
+        """
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
+
+
+class Square(Rectangle):
+    """
+    This is the Square class, inheriting from Rectangle.
+
+    It represents a square with a single side length (size).
+    """
+
+    def __init__(self, size):
+        """
+        Initializes a Square instance with size.
+
+        :param size: The side length of the square.
+        """
+        super().__init__(size, size)
+
+    def __str__(self):
+        """
+        Returns a string representation of the Square.
+
+        :return: A string representing the square's dimensions.
+        """
+        return "[Square] {}/{}".format(self._Rectangle__width, self._Rectangle__height)
