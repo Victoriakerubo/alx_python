@@ -51,6 +51,17 @@ class Rectangle(Base):
 
     # ... (other methods and attributes)
 
+    # ... (other methods and attributes)
+
+    def update(self, *args):
+        """ Update the attributes of the Rectangle instance """
+        if args:
+            attributes = ["id", "width", "height", "x", "y"]
+            for i, value in enumerate(args):
+                setattr(self, attributes[i], value)
+
+    # ... (other methods and attributes)
+
 
 
     @property
