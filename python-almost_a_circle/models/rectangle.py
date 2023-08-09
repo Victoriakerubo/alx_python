@@ -30,6 +30,16 @@ class Rectangle(Base):
 
     # ... (other methods and attributes)
 
+    # ... (other methods and attributes)
+
+    def __str__(self):
+        """ Return a string representation of the Rectangle instance """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height
+        )
+
+    # ... (other methods and attributes)
+
 
 
     @property
