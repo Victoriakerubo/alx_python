@@ -40,6 +40,17 @@ class Rectangle(Base):
 
     # ... (other methods and attributes)
 
+    # ... (other methods and attributes)
+
+    def display(self):
+        """ Display the Rectangle instance using '#' characters """
+        for _ in range(self.__y):
+            print()
+        for _ in range(self.__height):
+            print(' ' * self.__x + '#' * self.__width)
+
+    # ... (other methods and attributes)
+
 
 
     @property
