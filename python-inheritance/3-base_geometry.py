@@ -1,9 +1,7 @@
-# File: 3-base_geometry.py
+#!/usr/bin/python3
 
 class BaseGeometry:
     """
-    This is the BaseGeometry class.
-
-    It serves as the base class for geometry-related operations.
+    An empty base class for geometry-related classes.
     """
     pass
