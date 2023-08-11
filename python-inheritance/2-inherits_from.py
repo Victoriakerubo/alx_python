@@ -1,9 +1,14 @@
-is_kind_of_class = __import__('1-is_kind_of_class').is_kind_of_class
+#!/usr/bin/python3
 
-a = 1
-if is_kind_of_class(a, int):
-    print("{} comes from {}".format(a, int.__name__))
-if is_kind_of_class(a, float):
-    print("{} comes from {}".format(a, float.__name__))
-if is_kind_of_class(a, object):
-    print("{} comes from {}".format(a, object.__name__))
+def inherits_from(obj, a_class):
+    """
+    Checks if the object is an instance of a class that inherited from the specified class.
+
+    Args:
+        obj: The object to check.
+        a_class: The class to compare against.
+
+    Returns:
+        bool: True if obj is an instance of a subclass of a_class, False otherwise.
+    """
+    return isinstance(obj, a_class) and type(obj) is not a_class
