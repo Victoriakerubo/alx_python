@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+This module defines a Rectangle class that inherits from BaseGeometry.
+"""
 
 BaseGeometry = __import__('5-base_geometry').BaseGeometry
 
@@ -41,13 +44,3 @@ class Rectangle(BaseGeometry):
             int: The area of the rectangle.
         """
         return self.__width * self.__height
-
-    @property
-    def width(self):
-        """Getter for the width attribute."""
-        return self.__width
-
-    @property
-    def height(self):
-        """Getter for the height attribute."""
-        return self.__height
