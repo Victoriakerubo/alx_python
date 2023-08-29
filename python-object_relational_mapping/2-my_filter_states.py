@@ -18,9 +18,11 @@ if __name__ == "__main__":
     # Create a cursor
     cursor = db.cursor()
 
+    # Format the query using user input
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
+
     # Execute the query
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query, (state_name,))
+    cursor.execute(query)
 
     # Fetch all the rows
     rows = cursor.fetchall()
