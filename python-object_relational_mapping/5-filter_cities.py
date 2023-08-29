@@ -20,19 +20,20 @@ if __name__ == "__main__":
 
     # Prepare the query with placeholders and safely execute
     query = """
-    SELECT GROUP_CONCAT(cities.name ORDER BY cities.id ASC SEPARATOR ', ')
+    SELECT cities.name
     FROM cities
     JOIN states ON cities.state_id = states.id
     WHERE states.name = %s
+    ORDER BY cities.id ASC
     """
     cursor.execute(query, (state_name,))
 
-    # Fetch the result
-    result = cursor.fetchone()
+    # Fetch all the rows
+    rows = cursor.fetchall()
 
     # Display the results
-    if result and result[0]:
-        print(result[0])
+    for row in rows:
+        print(row[0])
 
     # Close the cursor and connection
     cursor.close()
