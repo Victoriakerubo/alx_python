@@ -31,7 +31,7 @@ def main():
 
     try:
         employee_name, completed_tasks, total_tasks, completed_titles = get_employee_data(employee_id)
-        print(f"Employee {employee_name} is done with tasks({completed_tasks}/{total_tasks}):")
+        print(f"Employee {employee_name} is done with tasks ({completed_tasks}/{total_tasks}):")
         for title in completed_titles:
             print(f"\t{title}")
     except requests.exceptions.RequestException as e:
