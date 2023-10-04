@@ -25,7 +25,17 @@ def get_employee_data(employee_id):
         task_title = todo["title"]
         tasks.append([str(user_id), username, str(task_completed), task_title])
 
-    return tasks
+    return user_id, username, tasks
+
+def export_to_csv(user_id, username, tasks):
+    filename = f"{user_id}.csv"
+    with open(filename, "w", newline="") as csvfile:
+        csvwriter = csv.writer(csvfile)
+        # Write the header row
+        csvwriter.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+        # Write the tasks
+        csvwriter.writerows(tasks)
+    print(f"Data has been exported to {filename}")
 
 def main():
     if len(sys.argv) != 2:
@@ -35,16 +45,9 @@ def main():
     employee_id = int(sys.argv[1])
 
     try:
-        tasks = get_employee_data(employee_id)
+        user_id, username, tasks = get_employee_data(employee_id)
         if tasks:
-            filename = f"{employee_id}.csv"
-            with open(filename, "w", newline="") as csvfile:
-                csvwriter = csv.writer(csvfile)
-                # Write the header row
-                csvwriter.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
-                # Write the tasks
-                csvwriter.writerows(tasks)
-            print(f"Data has been exported to {filename}")
+            export_to_csv(user_id, username, tasks)
         else:
             print(f"No tasks found for employee with ID {employee_id}")
     except requests.exceptions.RequestException as e:
