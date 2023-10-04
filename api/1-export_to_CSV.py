@@ -1,6 +1,6 @@
 import requests
-import csv
 import sys
+import csv
 
 def get_employee_data(employee_id):
     # Define API endpoints
@@ -18,21 +18,14 @@ def get_employee_data(employee_id):
     response = requests.get(todos_url)
     todos_data = response.json()
 
-    return user_id, username, todos_data
+    # Create a list of tasks in the required format
+    tasks = []
+    for todo in todos_data:
+        task_completed = todo["completed"]
+        task_title = todo["title"]
+        tasks.append([str(user_id), username, str(task_completed), task_title])
 
-def export_to_csv(employee_id):
-    user_id, username, todos_data = get_employee_data(employee_id)
-
-    csv_filename = f"{user_id}.csv"
-
-    with open(csv_filename, mode='w', newline='') as csv_file:
-        csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
-
-        for todo in todos_data:
-            task_completed_status = todo["completed"]
-            task_title = todo["title"]
-            csv_writer.writerow([user_id, username, task_completed_status, task_title])
+    return tasks
 
 def main():
     if len(sys.argv) != 2:
@@ -42,8 +35,18 @@ def main():
     employee_id = int(sys.argv[1])
 
     try:
-        export_to_csv(employee_id)
-        print(f"Data has been exported to {employee_id}.csv")
+        tasks = get_employee_data(employee_id)
+        if tasks:
+            filename = f"{employee_id}.csv"
+            with open(filename, "w", newline="") as csvfile:
+                csvwriter = csv.writer(csvfile)
+                # Write the header row
+                csvwriter.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+                # Write the tasks
+                csvwriter.writerows(tasks)
+            print(f"Data has been exported to {filename}")
+        else:
+            print(f"No tasks found for employee with ID {employee_id}")
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
         sys.exit(1)
