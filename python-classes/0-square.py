@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 class Square:
     """This is a Square class."""
 
@@ -20,5 +18,3 @@ try:
     print(mysquare._Square__size)
 except Exception as e:
     print(e)
-
-
