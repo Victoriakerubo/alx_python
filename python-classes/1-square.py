@@ -2,7 +2,15 @@ class Square:
     """This is a Square class."""
 
     def __init__(self, size=0):
-        """Initialize a Square instance with a given size."""
+        """Initialize a Square instance with a given size.
+
+        Args:
+            size (int, optional): The size of the square. Defaults to 0.
+
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
+        """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
@@ -41,3 +49,4 @@ if __name__ == "__main__":
         print(my_square_4.__dict__)
     except Exception as e:
         print(e)
+        
