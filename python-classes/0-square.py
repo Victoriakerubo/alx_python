@@ -1,20 +1,19 @@
 class Square:
-    """This is a Square class."""
-
     def __init__(self, size):
-        """Initialize a Square instance with a given size."""
         self.__size = size
 
-mysquare = Square(3)
-print(type(mysquare))
-print(mysquare.__dict__)
+    @property
+    def size(self):
+        return self.__size
 
-try:
-    print(mysquare.size)
-except Exception as e:
-    print(e)
+    @size.setter
+    def size(self, new_size):
+        if not isinstance(new_size, int):
+            raise TypeError("size must be an integer")
+        elif new_size < 0:
+            raise ValueError("size must be non-negative")
+        else:
+            self.__size = new_size
 
-try:
-    print(mysquare._Square__size)
-except Exception as e:
-    print(e)
+    def __str__(self):
+        return f"Square(size={self.__size})"
