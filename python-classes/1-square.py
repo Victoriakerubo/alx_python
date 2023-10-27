@@ -1,52 +1,44 @@
 class Square:
-    """This is a Square class."""
+    """Represents a square.
+
+    Attributes:
+        size: The size of the square.
+    """
 
     def __init__(self, size=0):
-        """Initialize a Square instance with a given size.
+        """Initializes a new square with the given size.
 
         Args:
-            size (int, optional): The size of the square. Defaults to 0.
-
-        Raises:
-            TypeError: If size is not an integer.
-            ValueError: If size is less than 0.
+            size: The size of the square. Must be an integer greater than or equal to zero.
         """
+
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >= 0")
+
         self.__size = size
 
-if __name__ == "__main__":
-    my_square_1 = Square(3)
-    print(type(my_square_1))
-    print(my_square_1.__dict__)
+    @property
+    def size(self):
+        """Returns the size of the square."""
+        return self.__size
 
-    my_square_2 = Square()
-    print(type(my_square_2))
-    print(my_square_2.__dict__)
+    @size.setter
+    def size(self, new_size):
+        """Sets the size of the square.
 
-    try:
-        print(my_square_1.size)
-    except Exception as e:
-        print(e)
+        Args:
+            new_size: The new size of the square. Must be an integer greater than or equal to zero.
+        """
 
-    try:
-        print(my_square_1._Square__size)
-    except Exception as e:
-        print(e)
+        if not isinstance(new_size, int):
+            raise TypeError("size must be an integer")
+        elif new_size < 0:
+            raise ValueError("size must be >= 0")
 
-    try:
-        my_square_3 = Square("3")
-        print(type(my_square_3))
-        print(my_square_3.__dict__)
-    except Exception as e:
-        print(e)
+        self.__size = new_size
 
-    try:
-        my_square_4 = Square(-89)
-        print(type(my_square_4))
-        print(my_square_4.__dict__)
-    except Exception as e:
-        print(e)
-        
+    def __str__(self):
+        return f"Square(size={self.__size})"
+
