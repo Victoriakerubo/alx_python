@@ -3,7 +3,6 @@ class Square:
 
     Attributes:
         size: The size of the square.
-        dict_: The internal dictionary of the `Square` object.
     """
 
     def __init__(self, size):
@@ -20,13 +19,7 @@ class Square:
         else:
             self.__size = size
 
-    @property
-    def size(self):
-        """Returns the size of the square."""
-        return self.__size
-
-    @size.setter
-    def size(self, new_size):
+    def set_size(self, new_size):
         """Sets the size of the square.
 
         Args:
@@ -40,12 +33,12 @@ class Square:
         else:
             self.__size = new_size
 
-    @property
-    def dict_(self):
-        """Returns the internal dictionary of the `Square` object."""
-        return self.__dict__
+    def get_size(self):
+        """Returns the size of the square."""
+        return self.__size
 
     def __str__(self):
-        """Returns a string representation of the square."""
         return f"Square(size={self.__size})"
+
+
 
