@@ -17,6 +17,17 @@ Todo:
 """
 
 class Square:
+    """A class to represent a square.
+
+    This class allows you to create a square by specifying its size. The size
+    is a private attribute, and this class provides methods for working with
+    the square.
+
+    Attributes:
+        __size (int): The size of the square.
+
+    """
+
     def __init__(self, size):
         """Initialize a Square with the given size.
 
@@ -28,4 +39,19 @@ class Square:
 
 # Additional documentation for methods, attributes, and functions can be added as needed.
 
+#!/usr/bin/python3
+Square = __import__('0-square').Square
 
+my_square = Square(3)
+print(type(my_square))
+print(my_square.__dict__)
+
+try:
+    print(my_square.size)
+except Exception as e:
+    print(e)
+
+try:
+    print(my_square.__size)
+except Exception as e:
+    print(e)
