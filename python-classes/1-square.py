@@ -1,44 +1,49 @@
+# -*- coding: utf-8 -*-
+"""Square Module
+
+This module defines a `Square` class that represents a square with a size attribute.
+The size attribute is validated to ensure it is an integer and greater than or equal to 0.
+
+Example:
+    You can create an instance of the `Square` class by specifying its size, and it will
+    perform size validation to ensure it's a valid integer value.
+
+Attributes:
+    None
+
+Todo:
+    * Implement methods for calculating the area and perimeter of the square.
+
+"""
+
 class Square:
-    """Represents a square.
+    """A class to represent a square.
+
+    This class allows you to create a square by specifying its size. The size
+    is a private attribute, and this class provides methods for working with
+    the square.
 
     Attributes:
-        size: The size of the square.
+        __size (int): The size of the square.
+
     """
 
     def __init__(self, size=0):
-        """Initializes a new square with the given size.
+        """Initialize a Square with the given size.
 
         Args:
-            size: The size of the square. Must be an integer greater than or equal to zero.
-        """
+            size (int, optional): The size of the square. Defaults to 0.
 
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
+
+        """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >= 0")
-
         self.__size = size
 
-    @property
-    def size(self):
-        """Returns the size of the square."""
-        return self.__size
-
-    @size.setter
-    def size(self, new_size):
-        """Sets the size of the square.
-
-        Args:
-            new_size: The new size of the square. Must be an integer greater than or equal to zero.
-        """
-
-        if not isinstance(new_size, int):
-            raise TypeError("size must be an integer")
-        elif new_size < 0:
-            raise ValueError("size must be >= 0")
-
-        self.__size = new_size
-
-    def __str__(self):
-        return f"Square(size={self.__size})"
+# Additional documentation for methods, attributes, and functions can be added as needed.
 
