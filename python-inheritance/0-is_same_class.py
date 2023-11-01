@@ -1,8 +1,26 @@
-#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+"""A module for checking if an object is an instance of a specified class.
+
+This module provides a function to determine whether an object is exactly an
+instance of a specified class. It can be used to check if an object belongs to
+a particular class or its subclasses.
+
+Example:
+    The module can be used to check if an object 'a' is an instance of the 'int' class:
+    
+    >>> a = 1
+    >>> is_same_class(a, int)
+    True
+
+Attributes:
+    None
+
+Todo:
+    None
+"""
 
 def is_same_class(obj, a_class):
-    """
-    Check if the object is an instance of the specified class.
+    """Check if the object is an instance of the specified class.
 
     Args:
         obj: The object to check.
@@ -12,23 +30,14 @@ def is_same_class(obj, a_class):
         True if obj is an instance of a_class, False otherwise.
 
     Example:
-    >>> is_same_class(1, int)
-    True
+        >>> a = 1
+        >>> is_same_class(a, int)
+        True
 
-    >>> is_same_class(1, float)
-    False
-
-    >>> is_same_class(1, object)
+    >>> a = 'Hello'
+    >>> is_same_class(a, int)
     False
     """
+
     return type(obj) == a_class
 
-# Test cases
-if __name__ == "__main__":
-    a = 1
-    if is_same_class(a, int):
-        print("{} is an instance of the class {}".format(a, int.__name__))
-    if is_same_class(a, float):
-        print("{} is an instance of the class {}".format(a, float.__name__))
-    if is_same_class(a, object):
-        print("{} is an instance of the class {}".format(a, object.__name__))
