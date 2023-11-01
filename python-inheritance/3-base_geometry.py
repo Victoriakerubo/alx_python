@@ -1,58 +1,56 @@
-#!/usr/bin/python3
-
 # -*- coding: utf-8 -*-
-"""Geometry module.
+"""This module defines a simple class named BaseGeometry.
 
-This module defines the `BaseGeometry` class, which serves as a base class for geometry-related classes.
+This module demonstrates documentation using Google-style docstrings.
+
+Example:
+    You can create an instance of the BaseGeometry class and use it to work
+    with basic geometry operations.
+
+    Example usage:
+
+    bg = BaseGeometry()
+    result = bg.area()  # Replace 'area' with a method name you intend to define.
+    print(result)
 
 Attributes:
-    None
+    None: This module does not define any module-level attributes.
 
 Todo:
-    * Define subclasses for specific geometries like Rectangle, Square, etc.
-    * Implement methods for geometry calculations.
+    * Define methods for geometry operations.
+    * Implement additional functionality for the BaseGeometry class.
 
 """
 
 class BaseGeometry:
-    """BaseGeometry class.
+    """BaseGeometry is a class for basic geometry operations.
 
-    This class provides the foundation for geometry-related classes and includes basic geometric methods.
+    This class can be used as a base for more specialized geometry classes.
+    You should implement geometry-related methods in your derived classes.
 
     Attributes:
-        None
+        None: This class does not define any attributes by default.
 
     """
 
-    def __init__(self):
-        pass
-
     def area(self):
-        """Calculate the area of the geometric shape.
+        """Calculate the area of the geometry.
+
+        You should implement this method in your derived classes.
 
         Returns:
-            float: The area of the shape.
+            float: The calculated area.
 
         """
         pass
 
     def perimeter(self):
-        """Calculate the perimeter of the geometric shape.
+        """Calculate the perimeter of the geometry.
+
+        You should implement this method in your derived classes.
 
         Returns:
-            float: The perimeter of the shape.
+            float: The calculated perimeter.
 
         """
         pass
-
-    def __str__(self):
-        """Convert the object to a string representation.
-
-        Returns:
-            str: A string representation of the object.
-
-        """
-        pass
-
-# Define specific geometry subclasses and implement their methods here.
-
