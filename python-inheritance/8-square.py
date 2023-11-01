@@ -1,32 +1,37 @@
 #!/usr/bin/python3
 
+# -*- coding: utf-8 -*-
+"""Square Module
+
+This module defines the `Square` class, which inherits from `Rectangle` and represents a geometric square.
+
+"""
+
 Rectangle = __import__('7-rectangle').Rectangle
 
 class Square(Rectangle):
-    """
-    A class representing a square.
+    """A class for representing squares.
 
-    Attributes:
-        __size (int): The size of the square.
+    This class inherits from Rectangle and adds specific functionality for squares.
+
     """
 
     def __init__(self, size):
-        """
-        Initializes a new instance of the Square class.
+        """Initialize a Square instance with the given size.
 
         Args:
             size (int): The size of the square.
+
         """
-        self.integer_validator("size", size)
-        super().__init__(size, size)  # Call parent constructor to set width and height
+        # Call the constructor of the parent class (Rectangle) with size for both width and height
+        super().__init__(size, size)
 
     def __str__(self):
-        """
-        Returns a string representation of the square.
+        """Return a string representation of the square.
 
         Returns:
-            str: A string representation of the square.
-        """
-        return "[Square] {}/{}".format(self.width, self.height)  # Use getter methods
+            str: A string in the format "[Square] <size>/<size>".
 
-# Rest of your code for testing
+        """
+        return "[Square] {}/{}".format(self.__width, self.__height)
+
